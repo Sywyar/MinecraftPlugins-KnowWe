@@ -1,0 +1,7 @@
+api-version: 1.16
+name: YN
+main: com.sywyar.yn.yn
+version: 8.8.8.8
+commands:
+  setyn:
+    description: 游戏开始嘛?
