@@ -1,6 +1,9 @@
-package com.sywyar.yn;
+package com.sywyar.knowwe;
 
-import com.sywyar.yn.gui.ListeningGUI;
+import com.sywyar.knowwe.command.StartGame;
+import com.sywyar.knowwe.gui.ListeningGUI;
+import com.sywyar.knowwe.scoreboard.KnowWeDesignationScroreboard;
+import com.sywyar.knowwe.task.KnowWeTime;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -10,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class yn extends JavaPlugin implements Listener {
+public class KnowWe extends JavaPlugin implements Listener {
     //设置问题
     //开始游戏
     //提出问题
@@ -25,19 +28,19 @@ public class yn extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this,this);
 
         getServer().getPluginManager().registerEvents(new ListeningGUI(), this);
-        getCommand("setyn").setExecutor(new com.sywyar.yn.command.startGame());
-        getCommand("setyn").setTabCompleter(new com.sywyar.yn.command.startGame());
+        getCommand("setkw").setExecutor(new StartGame());
+        getCommand("setkw").setTabCompleter(new StartGame());
 
 
-        BukkitTask ynTask = new com.sywyar.yn.task.yn().runTaskTimer(this,0,20);
-        BukkitTask score = new com.sywyar.yn.scoreboard.ynisplayer().runTaskTimer(this,0,5);
+        BukkitTask kwTask = new KnowWeTime().runTaskTimer(this,0,20);
+        BukkitTask score = new KnowWeDesignationScroreboard().runTaskTimer(this,0,5);
 
-        System.out.println("[YN] YN插件已加载");
+        System.out.println("[KnowWe] KnowWe插件已加载");
     }
 
     @Override
     public void onDisable() {
-        getLogger().info("[YN] YN插件已卸载");
+        getLogger().info("[KnowWe] KnowWe插件已卸载");
     }
 
     public static class variable{

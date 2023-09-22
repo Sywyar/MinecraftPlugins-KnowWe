@@ -1,4 +1,4 @@
-package com.sywyar.yn.scoreboard;
+package com.sywyar.knowwe.scoreboard;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -6,13 +6,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 
-import static com.sywyar.yn.command.startGame.getOnlinePlayerName;
+import static com.sywyar.knowwe.command.StartGame.getOnlinePlayerName;
 
-public class ynisplayer extends BukkitRunnable {
+public class KnowWeDesignationScroreboard extends BukkitRunnable {
 
-    public static void text(String playername){
-        Player player = Bukkit.getServer().getPlayer(playername);
-        com.sywyar.yn.scoreboard.yn.text(player);
+    public static void text(String playerName){
+        Player player = Bukkit.getServer().getPlayer(playerName);
+        KnowWeScoreboard.text(player);
     }
 
     @Override

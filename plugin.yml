@@ -1,7 +1,7 @@
 api-version: 1.16
 name: YN
-main: com.sywyar.yn.yn
+main: com.sywyar.knowwe.KnowWe
 version: 8.8.8.8
 commands:
-  setyn:
+  setkw:
     description: 游戏开始嘛?

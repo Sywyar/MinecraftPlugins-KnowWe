@@ -1,6 +1,6 @@
-package com.sywyar.yn.command;
+package com.sywyar.knowwe.command;
 
-import com.sywyar.yn.yn;
+import com.sywyar.knowwe.KnowWe;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -11,9 +11,9 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-public class startGame implements TabExecutor {
+public class StartGame implements TabExecutor {
     static String prefix = (ChatColor.translateAlternateColorCodes('&', "&e[&aY&4N&e]"));
-    public static yn.variable variable = new yn.variable();
+    public static KnowWe.variable variable = new KnowWe.variable();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] strings) {
@@ -32,7 +32,7 @@ public class startGame implements TabExecutor {
 
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
-        List<String> list = new ArrayList();
+        List<String> list = new ArrayList<>();
         if (strings.length==1){
             list.add("start");
             list.add("stop");
@@ -55,8 +55,8 @@ public class startGame implements TabExecutor {
     }
 
     public static void Start(CommandSender sender){
-        if (variable.question==null || variable.question.equals("")){
-            sender.sendMessage(prefix + ChatColor.RED+"没有设置问题，无法开始游戏，请使用/setyn setquestion <问题> 来设置问题 ");
+        if (variable.question==null || variable.question.isEmpty()){
+            sender.sendMessage(prefix + ChatColor.RED+"没有设置问题，无法开始游戏，请使用/setkw setquestion <问题> 来设置问题 ");
         }else {
             variable.gameStart=true;
             variable.end=false;
@@ -81,7 +81,7 @@ public class startGame implements TabExecutor {
     }
 
     public static void setQuestion(CommandSender sender,String[] strings){
-        if (strings[1]==null || strings[1].equals("")){
+        if (strings[1]==null || strings[1].isEmpty()){
             sender.sendMessage(prefix + ChatColor.RED+"设置问题失败，因为没有问题");
         }else {
             variable.question = strings[1];
@@ -116,20 +116,20 @@ public class startGame implements TabExecutor {
     }
 
     public static void reLoad(){
-        variable = new yn.variable();
+        variable = new KnowWe.variable();
     }
 
     public static void skipBeforeTalkTime(CommandSender sender){
-        if (startGame.variable.isStartBeforeTalk){
-            startGame.variable.beforeTalkTime=3;
+        if (StartGame.variable.isStartBeforeTalk){
+            StartGame.variable.beforeTalkTime=3;
         }else {
             sender.sendMessage(ChatColor.RED+"投票前讨论暂未开始");
         }
     }
 
     public static void skipAfterTalkTime(CommandSender sender){
-        if (startGame.variable.isStartAfterTalk){
-            startGame.variable.afterTalkTime=3;
+        if (StartGame.variable.isStartAfterTalk){
+            StartGame.variable.afterTalkTime=3;
         }else {
             sender.sendMessage(ChatColor.RED+"投票后讨论暂未开始");
         }

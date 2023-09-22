@@ -1,6 +1,6 @@
-package com.sywyar.yn.gui;
+package com.sywyar.knowwe.gui;
 
-import com.sywyar.yn.command.startGame;
+import com.sywyar.knowwe.command.StartGame;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -13,7 +13,7 @@ public class NumberOfVotes {
     public static void nvGUI(Player player){
         Inventory ynGUI = Bukkit.createInventory(null,27, ChatColor.GREEN+"请猜出有几票赞同");
 
-        int i = startGame.variable.players.size()+1,n=0;
+        int i = StartGame.variable.players.size()+1,n=0;
         while (n<i){
             ItemStack itemStack = new ItemStack(Material.GREEN_BANNER,1);
             ItemMeta itemMeta = itemStack.getItemMeta();
